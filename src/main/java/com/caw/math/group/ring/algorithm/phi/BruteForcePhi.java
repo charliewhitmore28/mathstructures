@@ -1,4 +1,4 @@
-package com.caw.math.algorithm.phi;
+package com.caw.math.group.ring.algorithm.phi;
 
 import com.caw.math.algorithm.gcd.GCD;
 import com.caw.math.algorithm.gcd.GCDFactory;

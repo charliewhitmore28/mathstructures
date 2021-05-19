@@ -108,6 +108,28 @@ public class IntegerRingTest {
     }
 
     @Test
+    public void testElementBigInteger() {
+        final IntegerRing ring = new IntegerRing(25);
+        final IntegerRingElement element = ring.element(BigInteger.valueOf(15));
+        Assertions.assertEquals(BigInteger.valueOf(15), element.value());
+    }
+
+    @Test
+    public void testElementLong() {
+        final IntegerRing ring = new IntegerRing(25);
+        final IntegerRingElement element = ring.element(40);
+        Assertions.assertEquals(BigInteger.valueOf(15), element.value());
+    }
+
+    @Test
+    public void testPhi() {
+        // The majority of phi-algorithm testing should be in the Phi implementations.
+        final IntegerRing ring = new IntegerRing(15);
+        final BigInteger actual = ring.phi();
+        Assertions.assertEquals(BigInteger.valueOf(8), actual);
+    }
+
+    @Test
     public void testSubtractNeutralElement() {
         final IntegerRing ring = new IntegerRing(100);
         final IntegerRingElement minuend = new IntegerRingElement(ring, 50);

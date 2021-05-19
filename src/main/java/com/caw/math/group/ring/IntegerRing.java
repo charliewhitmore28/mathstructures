@@ -1,6 +1,8 @@
 package com.caw.math.group.ring;
 
 import com.caw.math.group.AdditionGroup;
+import com.caw.math.group.ring.algorithm.phi.Phi;
+import com.caw.math.group.ring.algorithm.phi.PhiFactory;
 
 import java.math.BigInteger;
 
@@ -13,8 +15,11 @@ import java.math.BigInteger;
  * @author cwhitmore
  */
 
+@SuppressWarnings("PMD.TooManyMethods")
 public class IntegerRing implements AdditionGroup<IntegerRingElement> {
 
+    // TODO:: IoC?
+    private final Phi phi = PhiFactory.make();
     private final BigInteger size;
 
     public IntegerRing(final BigInteger size) {
@@ -60,6 +65,45 @@ public class IntegerRing implements AdditionGroup<IntegerRingElement> {
     @Override
     public IntegerRingElement getAdditiveNeutralElement() {
         return new IntegerRingElement(this, BigInteger.ZERO);
+    }
+
+    /**
+     * Returns a new {@link IntegerRingElement} instance with the specified {@code value}, which may have been reduced
+     * depending on the size of this integer ring.
+     *
+     * @param value
+     *      The value to create a new {@link IntegerRingElement} with.
+     * @return
+     *      A new {@link IntegerRingElement} with the specified value.
+     */
+
+    public IntegerRingElement element(final BigInteger value) {
+        return new IntegerRingElement(this, value);
+    }
+
+    /**
+     * Returns a new {@link IntegerRingElement} instance with the specified {@code value}, which may have been reduced
+     * depending on the size of this integer ring.
+     *
+     * @param value
+     *      The value to create a new {@link IntegerRingElement} with.
+     * @return
+     *      A new {@link IntegerRingElement} with the specified value.
+     */
+
+    public IntegerRingElement element(final long value) {
+        return new IntegerRingElement(this, value);
+    }
+
+    /**
+     * Report the phi-value of this IntegerRing.
+     *
+     * @return
+     *      The phi-value of this integer ring.
+     */
+
+    public BigInteger phi() {
+        return phi.of(this);
     }
 
     @Override
