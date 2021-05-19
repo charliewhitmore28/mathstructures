@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset">
+    <description>
+        PMD Basic Configuration
+    </description>
+
+    <rule ref="category/java/bestpractices.xml" />
+
+    <rule ref="category/java/codestyle.xml">
+        <exclude name="ClassNamingConventions"/>
+        <exclude name="LongVariable"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="ShortClassName"/>
+        <exclude name="ShortMethodName"/>
+    </rule>
+
+    <rule ref="category/java/design.xml">
+        <!-- I'd love to have this, but it is brutal with immutable BigInteger class -->
+        <exclude name="LawOfDemeter"/>
+    </rule>
+
+    <rule ref="category/java/errorprone.xml">
+        <!-- Meh, I like this in math-y code -->
+        <exclude name="AvoidFieldNameMatchingMethodName"/>
+        <exclude name="BeanMembersShouldSerialize"/>
+    </rule>
+
+    <rule ref="category/java/multithreading.xml" />
+
+    <rule ref="category/java/performance.xml" />
+
+    <rule ref="category/java/security.xml"/>
+
+</ruleset>
