@@ -4,7 +4,7 @@ MathStructures is a library intended to provide math algorithms and data structu
 
 ## Installation
 
-implementation 'com.caw.math:MathStructures:${version}'
+Coming soon!
 
 ## Features
 
