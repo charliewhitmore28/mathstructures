@@ -1,7 +1,6 @@
 # Math Structures
 
 MathStructures is a library intended to provide math algorithms and data structures useful for mathematical exploration.
-The goal of this library is to provide efficient implementations with consistent design.
 
 ## Installation
 
